@@ -54,7 +54,7 @@ jobs:
     name: EnvironmentVars
     runs-on: ubuntu-latest
     steps:
-    - run: echo Chosen browser $GIT_BWR | ${{env.GIT_BWR}} | ${{inputs.browser}} 
+    - run: echo Chosen browser  ${{env.GIT_BWR}} # | ${{inputs.browser}} 
 
 
           
