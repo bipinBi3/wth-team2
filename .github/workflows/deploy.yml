@@ -1,0 +1,42 @@
+name: Deploy to Azure
+
+on:
+  workflow_dispatch:
+
+env:
+  AZURE_RESOURCE_GROUP: ${{ vars.AZURERESOURCEGROUPNAME }}
+  AZURE_CREDENTIALS: ${{ secrets.AZURESERVICEPRINCIPALCLIENTSECRET }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURESERVICEPRINCIPALCLIENTSECRET }}
+
+      - name: Deploy ARM Template
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: ${{ vars.AZURERESOURCEGROUPNAME }}
+          template: /InfrastructureAsCode/main.bicep
+          parameters: environment=dev
+
+      - name: Deploy Test Environment
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: ${{ vars.AZURERESOURCEGROUPNAME }}
+          template: /InfrastructureAsCode/main.bicep
+          parameters: environment=test
+
+      - name: Deploy Prod Environment
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: ${{ vars.AZURERESOURCEGROUPNAME }}
+          template: /InfrastructureAsCode/main.bicep
+          parameters: environment=prod
+          
