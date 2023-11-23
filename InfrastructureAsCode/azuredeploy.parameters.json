@@ -1,0 +1,4 @@
+{
+  azure-env: 'dev',
+  azure-resource-location: 'east-us'  
+}
