@@ -17,6 +17,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
+          ##client-id: ${{ secrets.CLIENTID }}
+          ##tenant-id: ${{ secrets.TENANTID }}
+          ##subscription-id: ${{ secrets.SUBSCRIPTIONID }}
           creds: ${{ secrets.AZURESERVICEPRINCIPALCLIENTSECRET }}
 
       - name: Deploy ARM Template
