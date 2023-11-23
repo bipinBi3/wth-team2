@@ -52,7 +52,7 @@ jobs:
     name: EnvironmentVars
     runs-on: ubuntu-latest
     steps:
-    - run: echo ${{ inputs.browser}} 
+    - run: echo Chosen browser ${{ inputs.browser}} 
 
 
           
