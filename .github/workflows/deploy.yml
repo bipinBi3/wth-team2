@@ -27,7 +27,7 @@ jobs:
         with:
           resourceGroupName: ${{ vars.AZURERESOURCEGROUPNAME }}
           template: /InfrastructureAsCode/main.bicep
-          parameters: environment=dev
+          parameters: /InfrastructureAsCode/azuredeploy.parameters.json
 
       - name: Deploy Test Environment
         uses: azure/arm-deploy@v1
