@@ -13,7 +13,9 @@ on:
         # - Edge
         # - Chrome
         # - Firefox
-
+env:
+  GIT_BWR: FireFox
+    
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -52,7 +54,7 @@ jobs:
     name: EnvironmentVars
     runs-on: ubuntu-latest
     steps:
-    - run: echo Chosen browser ${{ inputs.browser}} 
+    - run: echo Chosen browser $GIT_BWR | ${{env.GIT_BWR}} | ${{inputs.browser}} 
 
 
           
