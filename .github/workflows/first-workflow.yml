@@ -1,0 +1,2 @@
+// To the workflow add a first job called job1 with two steps within it.
+// The steps should be simple CLI commands to echo out step1 and step2 as applicable
