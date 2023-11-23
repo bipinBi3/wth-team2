@@ -12,6 +12,7 @@ on:
          - Edge
          - Chrome
          - Firefox
+        default: Chrome
 jobs:
   job1:
     runs-on: ubuntu-latest
