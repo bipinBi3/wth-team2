@@ -6,13 +6,14 @@ on:
   #workflow_dispatch:
     inputs:
       browser:
-        required: true
+        default: 'Chrome'
+        required: false
         type: choice
         options:
          - Edge
          - Chrome
          - Firefox
-        default: Chrome
+
 jobs:
   job1:
     runs-on: ubuntu-latest
