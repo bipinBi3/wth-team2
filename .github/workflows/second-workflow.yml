@@ -8,11 +8,11 @@ on:
       browser:
         default: 'Chrome'
         required: false
-        type: choice
-        options:
-         - Edge
-         - Chrome
-         - Firefox
+        type: string
+        #options:
+        # - Edge
+        # - Chrome
+        # - Firefox
 
 jobs:
   job1:
